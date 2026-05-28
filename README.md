@@ -34,6 +34,8 @@ Portfolio content lives in `lib/portfolio.ts`. The profile links and project lin
 The generated hero visual is stored at `public/images/ai-os-hero.png`.
 The downloadable resume is stored at `public/resume.pdf`.
 
+The review form is available at `/reviews`. It uses a prefilled `mailto:` submission so visitors can send ratings and feedback without requiring a database or serverless backend.
+
 ## Deploy
 
 The simplest deployment path is Vercel:

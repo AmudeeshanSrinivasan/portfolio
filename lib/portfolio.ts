@@ -33,6 +33,7 @@ export const nav = [
   ["Projects", "#projects"],
   ["Skills", "#skills"],
   ["Writing", "#writing"],
+  ["Review", "/reviews"],
   ["Contact", "#contact"]
 ] as const;
 

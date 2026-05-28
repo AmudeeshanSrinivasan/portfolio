@@ -7,6 +7,7 @@ import {
   Github,
   Linkedin,
   Mail,
+  MessageSquareText,
   Rocket,
   Send,
   Sparkles
@@ -106,6 +107,9 @@ function Hero() {
           </a>
           <a href={links.resume} className={`${buttonBase} border-slate-700 bg-slate-900/70 text-slate-100 hover:border-slate-500`}>
             <Download size={16} /> Download Resume
+          </a>
+          <a href="/reviews" className={`${buttonBase} border-slate-700 bg-slate-900/70 text-slate-100 hover:border-slate-500`}>
+            <MessageSquareText size={16} /> Review Portfolio
           </a>
         </MotionDiv>
       </MotionDiv>
@@ -369,6 +373,9 @@ function Contact() {
           </a>
           <a href={links.email} className={`${buttonBase} border-teal-300/50 bg-teal-300 text-slate-950 hover:bg-teal-200`}>
             <Send size={16} /> Email
+          </a>
+          <a href="/reviews" className={`${buttonBase} border-slate-700 text-slate-100 hover:border-teal-300/50`}>
+            <MessageSquareText size={16} /> Review Portfolio
           </a>
         </div>
       </div>
