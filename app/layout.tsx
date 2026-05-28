@@ -35,7 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "if('scrollRestoration' in history){history.scrollRestoration='manual'};window.scrollTo(0,0);"
+              "if('scrollRestoration' in history){history.scrollRestoration='manual'};var n=performance.getEntriesByType('navigation')[0];if(!n||n.type==='navigate'||n.type==='reload'){window.scrollTo(0,0);}"
           }}
         />
       </head>
