@@ -1,0 +1,27 @@
+# Designing safe tool gateways for AI agents
+
+Tool-using agents need more than function calls. They need a controlled execution boundary that turns model intent into validated, scoped, observable actions.
+
+## The Problem
+
+LLM agents are good at proposing actions, but raw tool access creates avoidable risk. A model can call the wrong tool, pass malformed arguments, repeat a destructive action, or combine safe operations into an unsafe workflow.
+
+The gateway pattern treats every tool call as a request. The request is parsed, typed, checked against policy, optionally approved by a human, executed in a constrained environment, and returned as a structured observation.
+
+## Gateway Shape
+
+```text
+model intent -> schema validation -> policy gate -> approval gate -> executor -> observation -> audit log
+```
+
+- schema validation catches missing fields, unsafe paths, invalid enum values, and ambiguous arguments before execution
+- policy gates decide what the assistant is allowed to do for the current user, workspace, and risk level
+- approval gates pause high-impact actions such as filesystem writes, network calls, shell commands, or credential-adjacent operations
+- structured observations keep the model grounded in what actually happened instead of letting it infer tool results
+
+## Design Principles
+
+The gateway should be boring by design: explicit inputs, predictable outputs, strict defaults, and logs that make debugging possible after the fact. The assistant can be flexible at the reasoning layer, but the execution layer should be conservative.
+
+For ENMA, the ToolGateway direction is to keep Python as the policy and safety source while using lower-level runtime boundaries only for scoped commands. That keeps capability expansion separate from permission expansion.
+

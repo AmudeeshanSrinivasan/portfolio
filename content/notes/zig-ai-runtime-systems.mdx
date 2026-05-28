@@ -1,0 +1,25 @@
+# Why Zig for AI runtime systems
+
+Python is still the fastest way to iterate on AI behavior, but AI systems also need small, predictable runtime components. Zig is a strong fit for those boundaries.
+
+## Where Zig Fits
+
+Zig is not a replacement for the whole AI stack. It is useful around the edges where predictable binaries, explicit memory, simple deployment, and low overhead matter.
+
+- OpenAI-compatible API routers that normalize requests across local and hosted model providers
+- evaluation runners that need deterministic IO, JSONL datasets, bounded parallelism, and clear failure modes
+- runtime command boundaries where an assistant needs a small executable surface instead of a large framework process
+- developer tooling where startup time, streaming, and straightforward distribution matter
+
+## Why It Is Practical
+
+Zig gives low-level control without forcing a large runtime onto the deployment target. For local-first AI systems, that matters: users may run the assistant on laptops, small servers, or controlled environments where dependency weight becomes part of the product.
+
+The language also makes systems behavior visible. Allocators, networking, process boundaries, and error paths are explicit enough to support serious debugging.
+
+## My Current Direction
+
+I am exploring Zig in two related tracks: `llm-router-zig` for multi-provider chat routing, and `zig-eval` for registry-driven LLM evaluation. Both are ways to move infrastructure concerns out of the prompt layer and into testable runtime code.
+
+For ENMA, the same idea shows up as RuntimeZigClient: Python can stay responsible for AI behavior and safety policy, while Zig can handle scoped runtime work where a small command boundary is cleaner.
+

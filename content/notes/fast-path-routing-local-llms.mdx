@@ -1,0 +1,28 @@
+# Fast-path routing for local LLMs
+
+Local-first assistants need to feel responsive, but not every request needs the same model, context, memory, or tool chain. Fast-path routing keeps simple work cheap and reserves heavier systems for tasks that need them.
+
+## Why Routing Matters
+
+A local assistant can easily become slow if every turn loads retrieval, long context, tool planning, and a larger reasoning model. Most turns are simpler: a short answer, a clarification, a memory lookup, or a direct command.
+
+A router gives the assistant a first decision point. It classifies the turn, selects a path, and keeps the rest of the stack from waking up unnecessarily.
+
+## Example Routes
+
+- fast chat for low-risk conversational turns
+- RAG synthesis when the user asks about indexed documents, prior notes, or project context
+- tool execution when the answer requires an external action or structured side effect
+- coding route for repo-aware generation, debugging, or evaluation work
+- reasoning route for multi-step planning where latency is less important than accuracy
+
+```text
+turn -> intent + risk + context need -> route -> model/tool/memory path -> response
+```
+
+## Local-First Tradeoffs
+
+Local models make privacy and offline operation possible, but they force more careful budget management. Routing is where latency, context size, model choice, and tool risk become explicit engineering decisions.
+
+In ENMA, the routing direction is an 8-route turn-state router that can start with a fast local path and escalate only when retrieval, tools, coding context, or deeper reasoning is justified.
+
