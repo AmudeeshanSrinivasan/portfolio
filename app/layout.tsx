@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,7 +31,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if('scrollRestoration' in history){history.scrollRestoration='manual'};window.scrollTo(0,0);"
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
+        <ScrollToTop />
         {children}
       </body>
     </html>
