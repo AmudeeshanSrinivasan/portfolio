@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   title: "Amudeeshan Srinivasan | AI Engineer",
   description:
     "Portfolio for Amudeeshan Srinivasan, an AI Systems and LLM Engineer building local-first AI, agentic systems, RAG pipelines, voice AI, and runtime infrastructure.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg"
+  },
   openGraph: {
     title: "Amudeeshan Srinivasan | AI Engineer",
     description:
