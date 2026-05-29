@@ -82,6 +82,18 @@ function Hero() {
           Modern AI operating systems for local-first intelligence
         </MotionDiv>
         <MotionDiv variants={reveal}>
+          <div className="mb-6 flex items-center gap-4">
+            <div className="relative h-20 w-20 overflow-hidden rounded-lg border border-teal-300/30 bg-slate-950 shadow-glow sm:h-24 sm:w-24">
+              <Image
+                src="/images/amudeeshan-srinivasan.jpg"
+                alt="Amudeeshan Srinivasan"
+                fill
+                sizes="96px"
+                className="object-cover object-[50%_28%]"
+              />
+            </div>
+            <div className="hidden h-px flex-1 bg-gradient-to-r from-teal-300/40 to-transparent sm:block" />
+          </div>
           <h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
             Amudeeshan Srinivasan
           </h1>
