@@ -82,8 +82,8 @@ function Hero() {
           Modern AI operating systems for local-first intelligence
         </MotionDiv>
         <MotionDiv variants={reveal}>
-          <div className="mb-6 flex items-center gap-4">
-            <div className="relative h-20 w-20 overflow-hidden rounded-lg border border-teal-300/30 bg-slate-950 shadow-glow sm:h-24 sm:w-24">
+          <div className="mb-6 flex items-start gap-5">
+            <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-teal-300/30 bg-slate-950 shadow-glow sm:h-24 sm:w-24">
               <Image
                 src="/images/amudeeshan-srinivasan.jpg"
                 alt="Amudeeshan Srinivasan"
@@ -92,14 +92,16 @@ function Hero() {
                 className="object-cover object-[50%_28%]"
               />
             </div>
-            <div className="hidden h-px flex-1 bg-gradient-to-r from-teal-300/40 to-transparent sm:block" />
+            <div className="min-w-0 flex-1">
+              <h1 className="text-balance text-4xl font-semibold leading-[0.98] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Amudeeshan Srinivasan
+              </h1>
+              <p className="mt-4 max-w-3xl text-lg font-medium text-slate-200 sm:text-xl">
+                AI Engineer | LLM Systems | Multi-Agent AI | RAG Pipelines
+              </p>
+              <p className="mt-2 font-mono text-xs uppercase tracking-[0.16em] text-slate-500">Melbourne, Australia</p>
+            </div>
           </div>
-          <h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Amudeeshan Srinivasan
-          </h1>
-          <p className="mt-5 max-w-3xl text-xl font-medium text-slate-200">
-            AI Engineer | LLM Systems | Multi-Agent AI | RAG Pipelines
-          </p>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
             Building local-first AI systems, multi-agent architectures, and intelligent orchestration platforms.
           </p>
